@@ -16,5 +16,13 @@
     "express-validator": "^6.9.2",
     "nodemon": "^2.0.7",
     "uuid": "^8.3.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pshchegol1/Employee_Manager_Login_Registration.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pshchegol1/Employee_Manager_Login_Registration/issues"
+  },
+  "homepage": "https://github.com/pshchegol1/Employee_Manager_Login_Registration#readme"
 }

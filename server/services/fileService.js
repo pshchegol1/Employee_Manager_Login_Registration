@@ -16,3 +16,4 @@ exports.writeFileContents = (filePath, data)=>{
     fileContents = JSON.stringify(fileContents)
     fs.writeFileSync(path.join(__dirname, filePath), fileContents)
 }
+
