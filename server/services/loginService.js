@@ -7,5 +7,6 @@ const fileService = require('./fileService');
 
 const authenticate = (credential) =>{
     const {email, password} = {...credential}
+    const users = fileService.getFileContents('../data/users.json');
     
 }

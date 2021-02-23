@@ -1,5 +1,5 @@
 require ('dotenv').config();
-let fileService = require('./services/fileService');
+let registerService = require('./services/registerService');
 //express-validator
 const { check, validationResult } = require('express-validator');
 
@@ -14,7 +14,7 @@ const path = require('path');
 const cors = require('cors');
 
 //json file
-const users = require('./data/users.json');
+/* const users = require('./data/users.json'); */
 
 const app = express();
 
@@ -59,14 +59,18 @@ app.post(
       return res.status(422).json({ errors: errors.array() })
     }
 
-    const {username, email, password} = req.body
-    //! continue HERE 
-    users = fileService.writeFileContents({
-    newId,
-    username,
-    email,
-    password
-    })
+    const credentials = {
+      id:newId,
+      username:req.body.username,
+      email:req.body.email,
+      password:req.body.password
+    }
+    //! continue HERE     
+    const addData = registerService.addUser(credentials)
+   
+    
+   
+    
     
     // console.log(username,email,password)
     
