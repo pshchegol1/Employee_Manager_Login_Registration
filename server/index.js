@@ -6,6 +6,9 @@ const { check, validationResult } = require('express-validator');
 //uuid
 const { v4: uuidv4 } = require('uuid');
 
+// express-session
+const session = require('express-session');
+
 //new id
 const newId = uuidv4()
 
@@ -26,6 +29,17 @@ app.use(express.urlencoded({extended:true}))
 
 app.use(express.json())
 
+// ! SESSION==>
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true
+}))
+
+ // setup template Engine
+ app.set('view engine', 'ejs')
+ app.set('views', path.join(__dirname, './views'))
+
 
 app.use(express.static(path.join(__dirname, "../client"), {extensions: ["html", 'htm']})
 );
@@ -37,15 +51,29 @@ app.get("/", function (req, res) {
 }) 
 
 
-app.post('/login', (req, res)=>{
-  
- 
-  res.sendFile(path.join(__dirname, '../client/dashboard.html'))
-})
+app.post('/login',
+//*Validation
+check('email').isEmail().normalizeEmail(),
+check('password').isLength({
+        min: 6
+    }),
+    (req, res) => {
+        const errors = validationResult(req);
+        const {username, password} = req.body;
+        if (!errors.isEmpty()) {
+            return res.status(400).json({
+                success: false,
+                errors: errors.array()
+            });
+        }
 
-//!Lets validate data ===>
+        res.sendFile(path.join(__dirname, '../server/views/dashboard.ejs'))
+    });
+
+
 app.post(
   '/register',
+  //*Validation
   [
     check('username').isLength({ min:3, max:20 }),
     check('email').isEmail(),
