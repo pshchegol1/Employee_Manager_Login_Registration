@@ -50,6 +50,19 @@ input {
           box-sizing: border-box;
 }
 
+.wlm-btn {
+  text-align: center;
+  display: block;
+  margin-bottom: 20px;
+  width: 100%;
+  padding: 5px;
+  background: #3fb996;
+  border: hidden;
+  color: white;
+  font-weight: bold;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
 button {
   display: block;
   margin-bottom: 20px;
@@ -85,5 +98,12 @@ a {
 
 .signup a {
   color: #3fb996;
+}
+
+.warning {
+  color: red;
+  font-size: 13px;
+  padding-left: 1rem;
+  text-align: right;
 }
 /*# sourceMappingURL=styles.css.map */

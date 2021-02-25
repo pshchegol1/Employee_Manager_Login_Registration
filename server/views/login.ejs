@@ -34,9 +34,11 @@
         </div>
         <form class="Inputs" id="login" action="/login" method="POST">
           <label for="email">Email</label>
-          <input id="email" name="email" value="" required/>
+          <span class="warning"><%- emailWarning %></span>
+          <input id="email" name="email"  value="<%email%> " required/>
           <label for="password">Password</label>
-          <input id="password" name="password" value="" required/>
+          <span class="warning"><%- passwordWarning  %></span>
+          <input id="password" name="password" value="<%password%>" required/>
            <button type="submit">Login</button>
         </form>
 
