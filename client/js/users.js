@@ -1,32 +1,12 @@
- const display = document.querySelector('.display');
+  
  
-
-    //!error
-    function getJson()
+   async function getUsers()
     {
-        fetch('./server/data/users.json')
-        .then(res =>{
-           return res.json();
-        })
-        .then(data => {
-            console.log(data);
-            let li ='';
-       
-            data.forEach(user => {
-                li += `<li>${user.id}</li>`
-                li += `<li>${user.username}</li>`
-                li += `<li>${user.email}</li>`
-                li += `<li>${user.password}</li>`
-                
-            });
-            display.innerHTML = li;
-           
-           
-
-        })
-        .catch(err => {
-            console.log(err);
-        })
+        const req = await fetch('http://localhost:3000/api/v1/users')
+        const result = await req.json()
+        console.log(result)
     }
-
-    getJson()
+   
+    getUsers()
+    
+  

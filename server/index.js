@@ -1,8 +1,8 @@
 require ('dotenv').config();
 let registerService = require('./services/registerService');
 const loginService = require('./services/loginService');
-//! uncomment later
-// const output = require('../client/js/users');
+
+// const users = require('../client/js/users');
 //express-validator
 const { check, validationResult } = require('express-validator');
 
@@ -161,18 +161,19 @@ app.post(
        
     const addData = registerService.addUser(credentials)
    
-
+    
     res.sendFile(path.join(__dirname, '../client/login.html'))
   }
 )
 
 
 
-// !USERS Task CONTINUE HERE 
-// app.get('/api/v1/users', (req, res)=>{
-//   res.sendFile(path.join(__dirname, '../client/users.html',output.getUsers))
+// !USERS Task 
+app.get('/api/v1/users', (req, res)=>{
  
-// })
+  res.json()
+  
+})
 
 
 app.listen(PORT, () =>{
