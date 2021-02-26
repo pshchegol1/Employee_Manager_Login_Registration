@@ -12,7 +12,7 @@ and you will be redirected to the login page.
 
 Forms will not allow you to submit empty data.
 
-In the **Login page** if you will try to enter unrelevant information, the **express validator** will display an array of errors on different page.
+On the **Login** page, if you will try to enter irrelevant information, the **express validator** will display an array of errors on a different page.
 
 If you enter the correct email but incorrect password, you will get an error message that will say : *password doesn't seem to be correct*
 
@@ -26,7 +26,8 @@ If you enter the correct password but incorrect email, you will get an error mes
 - Bring the terminal and enter: 
                     1. npm init
                     2. npm install
-                    3. npm run server
-**nmp run server is the script in package.json that will start the project or enter npm run start**
+                    3. npm run server or npm run start
+
+**nmp run server and npm run start are the scripts in package.json that will start the project**
 
 
