@@ -1,23 +1,32 @@
+ const display = document.querySelector('.display');
+ 
 
-    const display = document.querySelector('.display');
-    console.log(display)
-
-    function getUsers()
+    //!error
+    function getJson()
     {
-        fetch('../server/data/users.json')
+        fetch('./server/data/users.json')
         .then(res =>{
-            return res.json();
+           return res.json();
         })
-        .then(data =>{
-            let li = '';
-
-            data.map(user =>{
+        .then(data => {
+            console.log(data);
+            let li ='';
+       
+            data.forEach(user => {
                 li += `<li>${user.id}</li>`
                 li += `<li>${user.username}</li>`
                 li += `<li>${user.email}</li>`
                 li += `<li>${user.password}</li>`
+                
             });
-            display.innerHTML = li
+            display.innerHTML = li;
+           
+           
+
+        })
+        .catch(err => {
+            console.log(err);
         })
     }
 
+    getJson()

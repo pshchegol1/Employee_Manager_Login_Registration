@@ -1,7 +1,8 @@
 require ('dotenv').config();
 let registerService = require('./services/registerService');
 const loginService = require('./services/loginService');
-
+//! uncomment later
+// const output = require('../client/js/users');
 //express-validator
 const { check, validationResult } = require('express-validator');
 
@@ -165,15 +166,16 @@ app.post(
   }
 )
 
-// *USERS Task CONTINUE HERE
-app.get('/api/v1/users', (req, res)=>{
-  res.sendFile(path.join(__dirname, '../client/users.html'))
+
+
+// !USERS Task CONTINUE HERE 
+// app.get('/api/v1/users', (req, res)=>{
+//   res.sendFile(path.join(__dirname, '../client/users.html',output.getUsers))
  
-})
+// })
 
 
 app.listen(PORT, () =>{
     console.log(`server started on http://localhost:${PORT}`)
 })
 
-//! USE THIS FOR UNIQUE ID: https://www.geeksforgeeks.org/node-js-npm-uuid/
