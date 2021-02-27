@@ -2,7 +2,7 @@ require ('dotenv').config();
 let registerService = require('./services/registerService');
 const loginService = require('./services/loginService');
 
-// const users = require('../client/js/users');
+// const getUsers = require('../client/js/users');
 //express-validator
 const { check, validationResult } = require('express-validator');
 
@@ -18,6 +18,7 @@ const newId = uuidv4()
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
+const { json } = require('express');
 
 //json file
 /* const users = require('./data/users.json'); */
@@ -171,8 +172,8 @@ app.post(
 // !USERS Task 
 app.get('/api/v1/users', (req, res)=>{
  
-  res.json()
-  
+ res.send("api")
+
 })
 
 

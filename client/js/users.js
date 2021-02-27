@@ -1,12 +1,17 @@
-  
- 
-   async function getUsers()
+    
+    async function getData()
     {
-        const req = await fetch('http://localhost:3000/api/v1/users')
+        const req = await fetch('./server/data/users.json')
         const result = await req.json()
-        console.log(result)
+       console.log(result)
+       return result
     }
-   
-    getUsers()
+    
+
+    getData()
+
+     
+
+  
     
   
